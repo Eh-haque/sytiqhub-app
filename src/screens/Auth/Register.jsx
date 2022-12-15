@@ -1,5 +1,6 @@
 import {
   Dimensions,
+  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -21,8 +22,8 @@ export default function Register({navigation}) {
   const [vehicleNumber, onChangeVehicleNumber] = React.useState(null);
 
   return (
-    // <ScrollView style={{flex: 1}}>
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      {/* <ScrollView contentContainerStyle={{flexGrow: 1}}> */}
       <View style={styles.texts}>
         <Text style={{fontSize: 40, fontWeight: '600', color: colors.white}}>
           Sign Up
@@ -34,56 +35,57 @@ export default function Register({navigation}) {
         </Text>
       </View>
       <View style={styles.form}>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeUserName}
-          value={userName}
-          placeholder="User Name"
-          keyboardType="text"
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangePassword}
-          value={password}
-          placeholder="Password"
-          keyboardType="text"
-          secureTextEntry
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeConfirmPassword}
-          value={confirmPassword}
-          placeholder="Confirm Password"
-          keyboardType="text"
-          secureTextEntry
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeBatteryNumber}
-          value={batteryNumber}
-          placeholder="Battery Number"
-          keyboardType="Number"
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeVehicleNumber}
-          value={vehicleNumber}
-          placeholder="Vehicle Number"
-          keyboardType="Number"
-        />
-
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Login')}
-            style={styles.button}>
-            <Text style={{color: colors.white, textAlign: 'center'}}>
-              Sign Up
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <ScrollView contentContainerStyle={{flexGrow: 1}}>
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeUserName}
+            value={userName}
+            placeholder="User Name"
+            keyboardType="text"
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangePassword}
+            value={password}
+            placeholder="Password"
+            keyboardType="text"
+            secureTextEntry
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeConfirmPassword}
+            value={confirmPassword}
+            placeholder="Confirm Password"
+            keyboardType="text"
+            secureTextEntry
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeBatteryNumber}
+            value={batteryNumber}
+            placeholder="Battery Number"
+            keyboardType="Number"
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeVehicleNumber}
+            value={vehicleNumber}
+            placeholder="Vehicle Number"
+            keyboardType="Number"
+          />
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Login')}
+              style={styles.button}>
+              <Text style={{color: colors.white, textAlign: 'center'}}>
+                Sign Up
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
       </View>
-    </View>
-    // </ScrollView>
+      {/* </ScrollView> */}
+    </SafeAreaView>
   );
 }
 
@@ -105,6 +107,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   form: {
+    flex: 1,
     position: 'absolute',
     top: (windowHeight * 28) / 100,
     backgroundColor: colors.white,
